@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('index');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/affiliates', 'AffiliatesController@index');
 Route::view('/shop', 'shop');
 Route::view('/blog', 'blog');
 Route::view('/contact', 'contact');
@@ -23,9 +28,5 @@ Route::view('/blog-details', 'blog-details');
 Route::view('/shopping-cart', 'shopping-cart');
 Route::view('/check-out', 'check-out');
 Route::view('/faq', 'faq');
-Route::view('/register', 'register');
-Route::view('/login', 'login');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::view('/register', 'register');
+// Route::view('/login', 'login');
