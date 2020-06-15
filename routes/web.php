@@ -28,5 +28,4 @@ Route::view('/blog-details', 'blog-details');
 Route::view('/shopping-cart', 'shopping-cart');
 Route::view('/check-out', 'check-out');
 Route::view('/faq', 'faq');
-// Route::view('/register', 'register');
-// Route::view('/login', 'login');
+

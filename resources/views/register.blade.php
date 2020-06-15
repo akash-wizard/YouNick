@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="zxx">
 
-
-<body>
     <!-- Page Preloder -->
-    <div id="preloder">
+   <!--  <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     @include('header.header')
 
@@ -164,19 +160,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+  
