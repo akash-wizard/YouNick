@@ -520,13 +520,6 @@
 @endsection
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-
-       setTimeout(function()
-        { 
-            alert("Please Login"); 
-        }, 10000);
-
-        });
+ 
 
 </script>
