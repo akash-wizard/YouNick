@@ -50,7 +50,7 @@
                             <button type="submit" class="site-btn login-btn">Sign In</button>
                         </form>
                         <div class="switch-login">
-                            <a href="{{url('registers')}}" class="or-login">Or Create An Account</a>
+                            <a href="{{url('register')}}" class="or-login">Or Create An Account</a>
                         </div>
                     </div>
                 </div>
