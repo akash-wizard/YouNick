@@ -29,3 +29,10 @@ Route::view('/shopping-cart', 'shopping-cart');
 Route::view('/check-out', 'check-out');
 Route::view('/faq', 'faq');
 
+//afiliates
+Route::get('/affiliates', 'AffiliatesController@index');
+Route::get('/create', 'AffiliatesController@add');
+Route::post('/store', 'AffiliatesController@save')->name('store');
+Route::get('/edit/{id}', 'AffiliatesController@edit');
+Route::post('/update/{id}', 'AffiliatesController@update');
+
