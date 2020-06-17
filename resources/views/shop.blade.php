@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+
    @include('header.header')
 <html lang="zxx">
 
@@ -534,3 +539,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 
 </html>
+@endsection

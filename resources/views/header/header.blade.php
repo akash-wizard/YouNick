@@ -124,7 +124,7 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{url('/')}}">Home</a></li>
+                        <li class=""><a href="{{url('/')}}">Home</a></li>
                         <li><a href="{{ url('shop')}}">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
