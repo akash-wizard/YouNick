@@ -1,6 +1,11 @@
 
 
 @extends('layouts.master')
+@push('css')
+<style type="text/css">
+    
+</style>
+@endpush
 @push('header')
 <section class="content-header">
   <h1>

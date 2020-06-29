@@ -26,7 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('/adminLte/plugins/summernote/summernote-bs4.min.css')}}">
 
-   
+   @stack('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -789,7 +789,6 @@
 <!-- ./wrapper -->
 <script src="{{ asset('/adminLte/dist/js/pages/dashboard3.js')}}"></script>
 <script src="{{ asset('/adminLte/dist/js/pages/dashboard2.js')}}"></script>
-<script src="{{ asset('/adminLte/dist/js/pages/dashboard1.js')}}"></script>
 
 <!-- jQuery -->
 <script src="{{ asset('/adminLte/plugins/jquery/jquery.min.js')}}"></script>
@@ -832,5 +831,6 @@
 <!-- AdminLTE -->
 
 <!-- OPTIONAL SCRIPTS -->
+@stack('manual_script')
 </body>
 </html>

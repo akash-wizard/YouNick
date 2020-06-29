@@ -37,4 +37,5 @@ Route::get('/edit/{id}', 'AffiliatesController@edit');
 Route::get('/delete/{id}', 'AffiliatesController@delete');
 Route::post('/update/{id}', 'AffiliatesController@update');
 Route::get('/profile', 'ProfileController@profile');
+Route::post('/changePassword', 'ProfileController@changePassword');
 

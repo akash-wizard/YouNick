@@ -26,7 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('/adminLte/plugins/summernote/summernote-bs4.min.css')}}">
 
-   
+   @stack('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -251,7 +251,7 @@
           <li class="nav-item"><a href="{{ url('/home')}}" class="nav-link"><i class="fa fa-tachometer-alt"></i> <span>Dashboard</span></a>
           <li class="nav-item"><a href="{{ url('affiliates')}}" class="nav-link"><i class="fa fa-users"></i> <span>Affiliates</span></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -745,7 +745,7 @@
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Informational</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -783,7 +783,6 @@
 <!-- ./wrapper -->
 <script src="{{ asset('/adminLte/dist/js/pages/dashboard3.js')}}"></script>
 <script src="{{ asset('/adminLte/dist/js/pages/dashboard2.js')}}"></script>
-<script src="{{ asset('/adminLte/dist/js/pages/dashboard1.js')}}"></script>
 
 <!-- jQuery -->
 <script src="{{ asset('/adminLte/plugins/jquery/jquery.min.js')}}"></script>
@@ -827,5 +826,6 @@
 <!-- AdminLTE -->
 
 <!-- OPTIONAL SCRIPTS -->
+@stack('manual_script')
 </body>
 </html>
