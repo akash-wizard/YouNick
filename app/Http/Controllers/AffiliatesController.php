@@ -14,6 +14,7 @@ class AffiliatesController extends Controller
     	// $login_type = \Auth::user()->user_type;
 
         $affiliates = affiliate::leftjoin('users','affiliates.user_id','=','users.id')
+        ->select('affiliates.*','users.id as user_id')
         ->paginate(10);
     	// dd($affiliates);
     	return view('affiliates.index',compact('affiliates'));
@@ -33,7 +34,7 @@ class AffiliatesController extends Controller
            $userData->email = $request->email;
            $userData->password = bcrypt("admin123");
            $userData->user_type = $request->user_type;
-           
+
         if($userData->save()){
 
             $affiliatesSave = New affiliate;
@@ -58,14 +59,15 @@ class AffiliatesController extends Controller
     public function edit($id)
     {
     	// $affiliates = affiliate::where($id,'user_id')->first();
-         $affiliates = affiliate::where($id);
+         $affiliates = affiliate::find($id);
         // dd($affiliates);
     	return view('affiliates.edit',compact('affiliates'));
     }
     public function delete($id)
     {
+        // dd($id);
         // $affiliates = affiliate::where($id,'user_id');
-        $affiliates = affiliate::where($id);
+        $affiliates = affiliate::find($id)->delete();
         return redirect()->to('affiliates')->with('delete','affiliate Deleted successfully');
     }
     
