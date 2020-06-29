@@ -62,6 +62,14 @@
                                 <!-- <input type="text" id="pass"> -->
                             </div>
                             <div class="group-input">
+                            <label>Profile Picture</label>
+                                <div class="custom-file">
+                                <input type="file" name="avatar" class="custom-file-input" id="validatedCustomFile" required>
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                <label class="custom-file-label" for="validatedCustomFile">please Upload Profile pic</label>
+                                </div>
+                            </div>
+                            <div class="group-input">
                                 <!-- <label for="con-pass">Confirm Password *</label> -->
                                 <label for="password" >{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">

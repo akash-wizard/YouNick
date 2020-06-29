@@ -69,11 +69,23 @@ class RegisterController extends Controller
         $password = $data['password'];
         $blade = 'emails.newClientWelcome';
         $usersType = 'clients';
+
+         $request = app('request');
+         // dd($request);
+        if($file = $request->hasfile('avatar'))
+        {
+            $file = array();
+            dd(1);
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
+        }
         return User::create([
             'name' => $name,
             'email' => $email,
             'user_type' => $usersType,
             'password' => Hash::make($password),
+            'avatar' => $filename,
         ]);
         $userArray = ['name'=>$name,'email'=>$email,'password'=>$password,'blade'=>$blade];
          $this->SendAllEmail($userArray);

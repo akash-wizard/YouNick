@@ -2,7 +2,7 @@
 $login_type = \Auth::user()->user_type;
 // dd($login_type);
  ?>
-@extends('layouts.master')
+@extends('layouts.vendor')
 
 @section('content')
     <div class="container-fluid">

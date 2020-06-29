@@ -14,7 +14,7 @@ class Controller extends BaseController
 
 
     public function SendAllEmail($userArray){
-    	    $fromSend = env('MAIL_FROM_SENDER_SITE',"akashb.m786@gmail.com"); 
+    	    $fromSend = env('MAIL_FROM_ADDRESS',"akashb.m786@gmail.com"); 
     	    $email = $userArray['email'];
     	    $name = $userArray['name'];
     	    // $verification_string = $userArray['verification_string'];
@@ -29,4 +29,18 @@ class Controller extends BaseController
             });
 
     }
+
+   public function saveimagefromportal($image,$foldername)
+    {
+        $baseUrl = URL::to('/');
+        if (!file_exists(public_path().'/'.$foldername.'/')) 
+        {
+            mkdir(public_path().'/'.$foldername.'/', 777, true);
+        }
+
+        $filename = date("Y-m-d").'-'.rand(10,10000).$image->getClientOriginalExtension();
+
+        $image->move(public_path($foldername), $filename);
+        return $filename;
+    } 
 }
