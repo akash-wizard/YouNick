@@ -249,11 +249,13 @@
             </ul>
           </li> -->
           <li class="nav-item"><a href="{{ url('/home')}}" class="nav-link"><i class="fa fa-tachometer-alt"></i> <span>Dashboard</span></a>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-card"></i> <span>Your Product</span></a>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-shopping-cart"></i> <span>Your Product</span></a>
           </li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-card"></i> <span>Upload New Product</span></a>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-shopping-cart"></i> <span>Upload New Product</span></a>
           </li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-card"></i> <span>Product History</span></a>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-shopping-cart"></i> <span>Product History</span></a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-shopping-cart"></i> <span>Wish List</span></a>
           </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

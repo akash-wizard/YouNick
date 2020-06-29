@@ -10,11 +10,11 @@ class AffiliatesController extends Controller
 {
     public function index()
     {
-    	$login_type = \Auth::user()->user_type;
-    	$r=$login_type === "vendor"?'menu2':'menu';
-        echo config($r.'perUser');
+        // dd(1);
+    	// $login_type = \Auth::user()->user_type;
 
-        $affiliates = affiliate::all();
+        $affiliates = affiliate::leftjoin('users','affiliates.user_id','=','users.id')
+        ->paginate(10);
     	// dd($affiliates);
     	return view('affiliates.index',compact('affiliates'));
     }
@@ -26,33 +26,27 @@ class AffiliatesController extends Controller
     public function save(Request $request)
     {
     	$company_id = 1;
-        if($request->hasFile('avatar')) 
-        {
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/'.$filename));
-            $avatarPath = '/uploads/avatars/'.$filename;
-        }
-
-
-    	$affiliatesSave = New affiliate;
-    	$affiliatesSave->user_id = 1;
-    	$name = $affiliatesSave->name = $request->name;
-    	$email = $affiliatesSave->email = $request->email;
-    	$affiliatesSave->mobile_no = $request->mobile_no;
-    	$affiliatesSave->company_id = $company_id;
-    	$affiliatesSave->login_type = $request->user_type;
-    	
-        if($affiliatesSave->save())
-        {
+        
+           $password = "admin123";
            $userData = New User;
            $userData->name = $request->name;
            $userData->email = $request->email;
-           $password = $userData->password = bcrypt("admin123");
+           $userData->password = bcrypt("admin123");
            $userData->user_type = $request->user_type;
+           
+        if($userData->save()){
+
+            $affiliatesSave = New affiliate;
+            $affiliatesSave->user_id = $userData->id;
+            $name = $affiliatesSave->name = $request->name;
+            $email = $affiliatesSave->email = $request->email;
+            $affiliatesSave->mobile_no = $request->mobile_no;
+            $affiliatesSave->company_id = $company_id;
+            $affiliatesSave->login_type = $request->user_type;
 
         }
-        if($userData->save()){
+        if($affiliatesSave->save())
+        {
 
         }
         $blade = 'emails.welcomeNewVendor';
@@ -63,12 +57,15 @@ class AffiliatesController extends Controller
     }
     public function edit($id)
     {
-    	$affiliates = affiliate::find($id);
+    	// $affiliates = affiliate::where($id,'user_id')->first();
+         $affiliates = affiliate::where($id);
+        // dd($affiliates);
     	return view('affiliates.edit',compact('affiliates'));
     }
     public function delete($id)
     {
-        $affiliates = affiliate::find($id);
+        // $affiliates = affiliate::where($id,'user_id');
+        $affiliates = affiliate::where($id);
         return redirect()->to('affiliates')->with('delete','affiliate Deleted successfully');
     }
     

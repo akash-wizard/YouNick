@@ -53,14 +53,14 @@
                 <span class="has-error">{{ $errors->first('user_type') }}</span>
             </div>
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
         <label>Profile Picture</label>
             <div class="custom-file">
             <input type="file" name="avatar" class="custom-file-input" id="validatedCustomFile" required>
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <label class="custom-file-label" for="validatedCustomFile">please Upload Profile pic</label>
             </div>
-        </div>
+        </div> -->
         <div class="col-md-12 row">
             
             <div class="col-md-6 pull-right">
