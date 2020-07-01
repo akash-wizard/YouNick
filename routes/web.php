@@ -38,4 +38,6 @@ Route::get('/delete/{id}', 'AffiliatesController@delete');
 Route::post('/update/{id}', 'AffiliatesController@update');
 Route::get('/profile', 'ProfileController@profile');
 Route::post('/changePassword', 'ProfileController@changePassword');
+Route::get('/profile_photo','ProfileController@profile_photo');
+Route::post('/profile_update','ProfileController@profile_Saved');
 

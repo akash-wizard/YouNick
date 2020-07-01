@@ -97,7 +97,7 @@
 @push('header')
 <section class="content-header">
   <h1>
-    AFFILIATE MASTER
+    PROFILE SETTING
   </h1>
 </section>
 @endpush
@@ -113,7 +113,9 @@
         @endif
  
     <div class="card-body">
-
+<p><a href="{{ url('profile_photo')}}"><b>#Profile</b></a></p>
+<hr>
+<p><b>#Change Password</b></p>
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 <fieldset class="required form__change-password">
 <form action="{{ url('changePassword') }}" enctype="multipart/form-data" class="form" method="post">
@@ -146,7 +148,7 @@
     </div>
   
   <div class="col-md-12">
-    <label class="label">Create Password</label>
+    <label class="label">Confirm Password</label>
     <input name="confirm_password" class="form-control" type="text" placeholder="Type Password to validate Strength"/ id="user_password">
     <span class="has-error">{{ $errors->first('confirm_password') }}</span>
   </div>

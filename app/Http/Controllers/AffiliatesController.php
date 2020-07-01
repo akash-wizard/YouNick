@@ -73,13 +73,22 @@ class AffiliatesController extends Controller
     
     public function update(Request $request,$id)
     {
+
     	$company_id = 1;
+
+        $userData = New User;
+        $userData->name = $request->name;
+        $userData->email = $request->email;
+        $userData->user_type = $request->user_type;
+        $userData->save();
+
+
     	$affiliates = affiliate::find($id);
     	$affiliates->name = $request->name;
     	$affiliates->email = $request->email;
     	$affiliates->mobile_no = $request->mobile_no;
     	$affiliates->company_id = $company_id;
-    	$affiliates->login_type = $request->login_type;
+    	$affiliates->login_type = $request->user_type;
     	$affiliates->save();
     	return redirect()->to('affiliates')->with('success','affiliate Updated successfully');
 
