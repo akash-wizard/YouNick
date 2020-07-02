@@ -18,16 +18,14 @@
         </ul>
     </div>
 @endif
- @section('content')
-<section class="content">
-    <div class="card">
-        @if (\Session::has('delete'))
+@if (\Session::has('delete'))
     <div class="alert alert-danger">
         <ul>
             <li>{!! \Session::get('delete') !!}</li>
         </ul>
     </div>
 @endif
+
  
     <div class="box-header">
         <div class="row pull-right" style="margin-bottom: 20px;">
@@ -64,7 +62,7 @@
                 <td>-</td>
                 <td>-</td>
                 <td><a class="btn btn-info" href="{{ url('/edit/'.$value->id)}}">Edit</a></td>
-                <td><a class="btn btn-info" href="{{ url('/delete/'.$value->id)}}"><i class="fa fa-trash"></i></a></td>
+                <td><a class="btn btn-info" href="{{ url('/delete/'.$value->user_id)}}"><i class="fa fa-trash"></i></a></td>
             </tr>
             @endforeach
             </tbody>

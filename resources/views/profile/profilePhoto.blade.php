@@ -2,9 +2,8 @@
 
 @extends('layouts.master')
 @push('css')
-
-
-
+<style type="text/css">
+    .has-error{color: red;}
 </style>
 @endpush
 
@@ -40,15 +39,19 @@
             <div class="form-group">
                 <label for="useremail">Email</label>
                 <input type="email" class="form-control" id="useremail" placeholder="Enter email" value="{{ $profile->email}}" name="email">
+                <span class="has-error">{{ $errors->first('email') }}</span>
             </div>
             <div class="form-group">
                 <label for="username">Name</label>
                 <input type="text" class="form-control" id="" placeholder="Enter username" value="{{ $profile->name}}" name="name">
+                <span class="has-error">{{ $errors->first('name') }}</span>
             </div>
            
             <div class="form-group">
                 <label for="username">profile Upload</label>
+                <span>{{ $profile->user_logo}}</span>
                 <input type="file" class="form-control" id="username" placeholder="Enter username" value="{{ $profile->user_logo}}" name="user_logo">
+                <span class="has-error">{{ $errors->first('user_logo') }}</span>
             </div>
             <div class="form-group row m-t-20 text-center">
                 <div class="col-12 ">

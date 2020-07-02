@@ -22,7 +22,7 @@
         </div>
     </div> -->
     <div class="card-body">
-        <form action="{{ url('update/'.$affiliates->id) }}" enctype="multipart/form-data" class="form" method="post">
+        <form action="{{ url('update/'.$affiliates->user_id) }}" enctype="multipart/form-data" class="form" method="post">
         {{ csrf_field() }}
 
         <div class="col-md-12 row">

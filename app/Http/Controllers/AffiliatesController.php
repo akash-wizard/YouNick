@@ -27,6 +27,15 @@ class AffiliatesController extends Controller
     public function save(Request $request)
     {
     	$company_id = 1;
+
+        $request->validate([
+          'name' => 'required',
+          'email' => 'required|unique:users,email',
+          'mobile_no' => 'required',
+          'user_type' => 'required',
+          // 'user_logo' => 'required',
+          
+          ]);
         
            $password = "admin123";
            $userData = New User;
@@ -67,29 +76,43 @@ class AffiliatesController extends Controller
     {
         // dd($id);
         // $affiliates = affiliate::where($id,'user_id');
-        $affiliates = affiliate::find($id)->delete();
+       affiliate::where('user_id',$id)->delete();
+       User::where('id',$id)->delete();
         return redirect()->to('affiliates')->with('delete','affiliate Deleted successfully');
     }
     
     public function update(Request $request,$id)
     {
+        // dd($id);
 
     	$company_id = 1;
 
-        $userData = New User;
-        $userData->name = $request->name;
-        $userData->email = $request->email;
-        $userData->user_type = $request->user_type;
-        $userData->save();
+        $request->validate([
+          'name' => 'required',
+          'email' => 'required',
+          'mobile_no' => 'required',
+          'login_type' => 'required',
+          // 'user_logo' => 'required',
+          
+          ]);
 
 
-    	$affiliates = affiliate::find($id);
+    	$affiliates = affiliate::where('user_id',$id)->first();
+        // dd($affiliates);
     	$affiliates->name = $request->name;
     	$affiliates->email = $request->email;
     	$affiliates->mobile_no = $request->mobile_no;
     	$affiliates->company_id = $company_id;
-    	$affiliates->login_type = $request->user_type;
+    	$affiliates->login_type = $request->login_type;
     	$affiliates->save();
+
+
+        $userData = User::where('id',$id)->first();
+        // dd($userData);
+        $userData->name = $request->name;
+        $userData->email = $request->email;
+        $userData->user_type = $request->login_type;
+        $userData->save();
     	return redirect()->to('affiliates')->with('success','affiliate Updated successfully');
 
     }

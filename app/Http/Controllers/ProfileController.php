@@ -41,6 +41,12 @@ class ProfileController extends Controller
    public function profile_Saved(Request $request)
    {
         // dd($request->hasfile('user_logo'));
+        $request->validate([
+          'name' => 'required',
+          'email' => 'required',
+          // 'user_logo' => 'required',
+          
+          ]);
         $folder = 'profile-img';
         $data = user::where('id',auth()->user()->id)->first();
         // dd($data);
@@ -48,17 +54,16 @@ class ProfileController extends Controller
         $data->email = $request->email;
         // $data->role_id = $request->role_id;
         // $data->user_logo = $request->user_logo;
-        if ($data->user_logo) {
-              // Storage::delete('/'.$folder . '/' . $data->user_logo);
-              File::delete(public_path('/'.$folder . '/' . $data->user_logo));
-              // dd('/'.$folder . '/' . $data->user_logo);
-              $data->user_logo = null;
-              $data->save();
-          }
+        
+        // if ($data->user_logo) {
+        //       File::delete(public_path('/'.$folder . '/' . $data->user_logo));
+        //       $data->user_logo = null;
+        //       $data->save();
+        //   }
         if($request->hasfile('user_logo')){
             $file = $request->file('user_logo');
             $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'. $extenstion;
+            $filename = $data->name.'.'. $extenstion;
             $file->move('profile-img', $filename);
             $data->user_logo = $filename;
         }

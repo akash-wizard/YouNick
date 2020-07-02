@@ -3,7 +3,7 @@
 @extends('layouts.master')
 @push('css')
 <style type="text/css">
-    
+   .has-error{color: red;} 
 </style>
 @endpush
 @push('header')
@@ -33,19 +33,18 @@
         <div class="col-md-12 row">
             <div class="col-md-6">
                 <label>Name:</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ old('name')}}" required>
-                <span class="has-error">{{ $errors->first('name') }}</span>
+                <input type="text" class="form-control" name="name" id="name" value="{{ old('name')}}"> <span class="has-error">{{ $errors->first('name') }}</span>
             </div>
             <div class="col-md-6">
                 <label>Email:</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ old('email')}}" required="">
+                <input type="email" class="form-control" name="email" id="email" value="{{ old('email')}}" >
                 <span class="has-error">{{ $errors->first('email') }}</span>
             </div>
         </div>
         <div class="col-md-12 row">
             <div class="col-md-6">
                 <label>Mobile no:</label>
-                <input type="number" class="form-control" name="mobile_no" id="mobile_no" value="{{ old('mobile_no')}}" required="">
+                <input type="number" class="form-control" name="mobile_no" id="mobile_no" value="{{ old('mobile_no')}}" >
                 <span class="has-error">{{ $errors->first('mobile_no') }}</span>
             </div>
             <div class="col-md-6">
