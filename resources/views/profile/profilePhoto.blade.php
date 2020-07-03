@@ -33,7 +33,7 @@
              <div class="form-group text-center">
           <div class="avatar">
             <!-- <img src="https://randomuser.me/api/portraits/men/75.jpg"> -->
-            <img style=" vertical-align: middle; width: 120px;height: 120px;border-radius: 50%; "  src="/profile-img/{{ $profile->user_logo}}"  height="" width="">
+            <a href="/profile-img/{{ $profile->user_logo}}" target="_blank"><img style=" vertical-align: middle; width: 120px;height: 120px;border-radius: 50%; "  src="/profile-img/{{ $profile->user_logo}}"  height="" width=""></a>
           </div>
         </div>
             <div class="form-group">

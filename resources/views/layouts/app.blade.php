@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -102,10 +103,19 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+
+            <!-- /.content-header -->
+            @stack('header')
+            <!-- Main content -->
+            <section class="content">
+              @yield('content')
+              </section>
+            <!-- /.content -->
+          </div>
     </div>
+    @stack('manual_script')
 </body>
     <!-- Js Plugins -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

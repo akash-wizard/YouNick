@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/affiliates', 'AffiliatesController@index');
-Route::view('/shop', 'shop');
+Route::get('/shop', 'CardController@shop');
 Route::view('/blog', 'blog');
 Route::view('/contact', 'contact');
 Route::view('/blog-details', 'blog-details');
@@ -40,4 +40,14 @@ Route::get('/profile', 'ProfileController@profile');
 Route::post('/changePassword', 'ProfileController@changePassword');
 Route::get('/profile_photo','ProfileController@profile_photo');
 Route::post('/profile_update','ProfileController@profile_Saved');
+
+
+//card
+Route::get('/add-to-card/{product}','CardController@add')->name('cart.add')->middleware('auth');
+// Route::get('/add-to-card/{product}','CardController@index')->name('card.add')->middleware('auth');
+// Route::get('/card','CardController@index')->name('card.index')->middleware('auth');
+Route::get('/card','CardController@index')->name('cart.index')->middleware('auth');
+Route::get('/card.destroy/{id}','CardController@destroy')->name('cart.destroy')->middleware('auth');
+Route::get('/card.update/{id}','CardController@update')->name('cart.update')->middleware('auth');
+Route::get('/card.clearAll','CardController@clearAll')->name('cart.clearAll')->middleware('auth');
 

@@ -23,7 +23,7 @@
 </head>
  <!-- Header Section Begin -->
     <header class="header-section">
-       
+
         <div class="container">
             <div class="inner-header">
                 <div class="row">
@@ -53,47 +53,59 @@
                                 </a>
                             </li>
                             <li class="cart-icon">
-                                <a href="#">
+                                <a href="{{ route('cart.index')}}">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    @if(session()->has('key'))
+
+                                    <span>{{Cart::session(auth()->id())->getContent()->count()}}</span>
+
+
+                                    @else
+                                    <span>0</span>
+                                    @endif
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
+                                                    @if(session()->has('key'))
+
+                                                        @foreach ($cartitems as $item)
+                                                        <tr>
+                                                            <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                                            <td class="si-text">
+                                                                <div class="product-selected">
+                                                                    <p>{{$item-price}}</p>
+                                                                    <h6>{{$item-name}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="si-close">
+                                                                <i class="ti-close"></i>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+
+                                                    @else
+                                                    <tr></tr>
+                                                    @endif
+
+
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        <h5>$120.00</h5>
+                                        @if(session()->has('key'))
+
+                                        <h5>{{Cart::session(auth()->id())->getTotal()}}</h5>
+
+                                        @else
+                                           <h5>0</h5>
+
+                                       @endif
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>

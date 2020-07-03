@@ -1,18 +1,64 @@
+
 @extends('layouts.app')
+@push('css')
+<style type="text/css">
+   .has-error{color: red;}
+   body {
+  background-color: aliceblue;
+  font-family: sans-serif;
+  text-align: center;
+}
+button {
+  background-color: cadetblue;
+  color: whitesmoke;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 15px 35px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 10px;
+}
+img {
+  width: 200px;
+}
+input[type="text"] {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+h1 {
+  border-bottom: solid 2px grey;
+}
+#success {
+  background: green;
+}
+#error {
+  background: red;
+}
+#warning {
+  background: coral;
+}
+#info {
+  background: cornflowerblue;
+}
+#question {
+  background: grey;
+}
+
+</style>
+@endpush
+@push('header')
+@include('header.header')
+@endpush
 
 @section('content')
-
-
-   @include('header.header')
-<html lang="zxx">
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-
+<section class="content">
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
@@ -155,6 +201,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="product-show-option">
                         <div class="row">
@@ -174,7 +223,9 @@
                         </div>
                     </div>
                     <div class="product-list">
-                        <div class="row">
+                            <div class="row">
+                     @foreach($allProducts as $product)
+
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
@@ -184,24 +235,37 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                @auth
+                                                <li class="w-icon active"><a href="{{ route("cart.add", $product->id)}}"><i class="icon_bag_alt"></i></a></li>
+                                                @endauth
+                                                @guest
+                                                <li class="w-icon active"><a id="link" href="#"><i class="icon_bag_alt"></i></a></li>
+                                                @endguest
+
+
                                             <li class="quick-view"><a href="#">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="pi-text">
-                                        <div class="catagory-name">Towel</div>
+                                        <div class="catagory-name">{{$product->description}}</div>
                                         <a href="#">
-                                            <h5>Pure Pineapple</h5>
+                                            <h5>{{$product->name}}</h5>
                                         </a>
                                         <div class="product-price">
-                                            $14.00
+                                            ${{$product->price}}
                                             <span>$35.00</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-sm-6">
+
+
+                            @endforeach
+                        </div>
+
+
+                            <!-- <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
                                         <img src="img/products/product-2.jpg" alt="">
@@ -403,7 +467,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="loading-more">
                         <i class="icon_loading"></i>
                         <a href="#">
@@ -450,7 +514,7 @@
     </div>
     <!-- Partner Logo Section End -->
 
-    <!-- Footer Section Begin -->
+    {{-- <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
@@ -523,20 +587,51 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
+    <!-- Footer Section End --> --}}
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
 
-</html>
+</section>
 @endsection
+
+@push('manual_script')
+ <!-- Js Plugins -->
+ <script src="js/jquery-3.3.1.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/jquery-ui.min.js"></script>
+ <script src="js/jquery.countdown.min.js"></script>
+ <script src="js/jquery.nice-select.min.js"></script>
+ <script src="js/jquery.zoom.min.js"></script>
+ <script src="js/jquery.dd.min.js"></script>
+ <script src="js/jquery.slicknav.js"></script>
+ <script src="js/owl.carousel.min.js"></script>
+ <script src="js/main.js"></script>
+
+
+ <!-- SweetAlert2 -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+ <script>// Alert Redirect to Another Link
+    $(document).on('click', '#link', function(e) {
+        // alert(1);
+        swal({
+            title: "Please Login?",
+            text: "Click Following Button For Login",
+            type: "warning",
+            confirmButtonText: "Login!",
+            showCancelButton: true
+        })
+            .then((result) => {
+                if (result.value) {
+                    window.location = '/login';
+                } else if (result.dismiss === 'cancel') {
+                    swal(
+                      'Cancelled',
+                      'Your stay here :)',
+                      'error'
+                    )
+                }
+            })
+    });
+    </script>
+ @endpush

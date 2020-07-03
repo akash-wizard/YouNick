@@ -3,13 +3,14 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    {{-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> --}}
 
     @include('header.header')
 
     <!-- Breadcrumb Section Begin -->
+
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
@@ -43,54 +44,37 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                    @foreach ($cartitems as $item)
+
+
                                 <tr>
                                     <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
                                     <td class="cart-title first-row">
-                                        <h5>Pure Pineapple</h5>
+                                        <h5>{{$item->name}}</h5>
                                     </td>
-                                    <td class="p-price first-row">$60.00</td>
+                                    <td class="p-price first-row">
+                                            {{$item->price}}
+
+
+                                    </td>
+
                                     <td class="qua-col first-row">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="1">
+                                                <form action="{{ route('cart.update',$item->id)}}">
+                                                <input name="quantity" type="text" value="{{$item->quantity}}">
+
+
                                             </div>
+                                            <input type="submit" value="save">
+                                            </form>
                                         </div>
                                     </td>
-                                    <td class="total-price first-row">$60.00</td>
-                                    <td class="close-td first-row"><i class="ti-close"></i></td>
+                                    <td class="total-price first-row">{{Cart::session(auth()->id())->get($item->id)->getPriceSum()}}</td>
+                                <td class="close-td first-row"><a href="{{ route('cart.destroy',$item->id)}}"><i class="ti-close"></i></a></td>
                                 </tr>
-                                <tr>
-                                    <td class="cart-pic"><img src="img/cart-page/product-2.jpg" alt=""></td>
-                                    <td class="cart-title">
-                                        <h5>American lobster</h5>
-                                    </td>
-                                    <td class="p-price">$60.00</td>
-                                    <td class="qua-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-price">$60.00</td>
-                                    <td class="close-td"><i class="ti-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="cart-pic"><img src="img/cart-page/product-3.jpg" alt=""></td>
-                                    <td class="cart-title">
-                                        <h5>Guangzhou sweater</h5>
-                                    </td>
-                                    <td class="p-price">$60.00</td>
-                                    <td class="qua-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-price">$60.00</td>
-                                    <td class="close-td"><i class="ti-close"></i></td>
-                                </tr>
+
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -111,10 +95,12 @@
                         <div class="col-lg-4 offset-lg-4">
                             <div class="proceed-checkout">
                                 <ul>
-                                    <li class="subtotal">Subtotal <span>$240.00</span></li>
-                                    <li class="cart-total">Total <span>$240.00</span></li>
+                                    <li class="subtotal">Subtotal <span>{{Cart::session(auth()->id())->getSubTotal()}}</span></li>
+                                    <li class="cart-total">Total <span>{{Cart::session(auth()->id())->getTotal()}}</span></li>
                                 </ul>
                                 <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                <a href="{{ route('cart.clearAll')}}" class="proceed-btn">CLEAR ALL</a>
+
                             </div>
                         </div>
                     </div>
