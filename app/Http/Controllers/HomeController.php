@@ -24,11 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = session()->get('key', 'login');
+
         $allProducts = Product::take(20)->get();
 
         // dd($allProducts);
-        return view('shop',compact('allProducts','data'));
+        return view('shop',compact('allProducts','cartitems'));
         // $login_type = \Auth::user()->user_type;
         // // dd($login_type);
         // if ($login_type=="vendor") {

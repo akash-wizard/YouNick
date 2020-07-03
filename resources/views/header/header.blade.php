@@ -1,3 +1,7 @@
+<?php
+     $cartitems = \Cart::session(auth()->id())->getContent();
+    //  dd($cartitems);
+ ?>
  <!DOCTYPE html>
  <head>
     <meta charset="UTF-8">
@@ -55,28 +59,29 @@
                             <li class="cart-icon">
                                 <a href="{{ route('cart.index')}}">
                                     <i class="icon_bag_alt"></i>
-                                    @if(session()->has('key'))
+                                    @auth
 
                                     <span>{{Cart::session(auth()->id())->getContent()->count()}}</span>
 
 
-                                    @else
+                                    @endauth
+                                    @guest
                                     <span>0</span>
-                                    @endif
+                                    @endguest
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody>
-                                                    @if(session()->has('key'))
+                                                    @auth
 
                                                         @foreach ($cartitems as $item)
                                                         <tr>
                                                             <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
                                                             <td class="si-text">
                                                                 <div class="product-selected">
-                                                                    <p>{{$item-price}}</p>
-                                                                    <h6>{{$item-name}}</h6>
+                                                                    <p>{{$item->price}}</p>
+                                                                    <h6>{{$item->name}}</h6>
                                                                 </div>
                                                             </td>
                                                             <td class="si-close">
@@ -85,9 +90,10 @@
                                                         </tr>
                                                         @endforeach
 
-                                                    @else
+                                                    @endauth
+                                                    @guest
                                                     <tr></tr>
-                                                    @endif
+                                                    @endguest
 
 
                                             </tbody>
@@ -95,14 +101,15 @@
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        @if(session()->has('key'))
+                                        @auth
 
                                         <h5>{{Cart::session(auth()->id())->getTotal()}}</h5>
 
-                                        @else
+                                        @endauth
+                                        @guest
                                            <h5>0</h5>
 
-                                       @endif
+                                       @endguest
                                     </div>
                                     <div class="select-button">
                                     <a href="#" class="primary-btn view-card">VIEW CARD</a>

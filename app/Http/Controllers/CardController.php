@@ -17,7 +17,7 @@ class CardController extends Controller
     'id' => $product->id,
     'name' => $product->name,
     'price' => $product->price,
-    'quantity' => 4,
+    'quantity' => 1,
     'attributes' => array(),
     'associatedModel' => $product
     ));
@@ -56,7 +56,7 @@ class CardController extends Controller
     {
         $allProducts = Product::take(20)->get();
 
-        // dd($allProducts);
+        // dd(count($allProducts));
         return view('shop',compact('allProducts'));
     }
 }
