@@ -1,13 +1,18 @@
 @extends('layouts.app')
+@push('css')
+@endpush
+@push('header')
+@include('header.header')
+@endpush
 
 @section('content')
 <section>
     <!-- Page Preloder -->
-    <div id="preloder">
+    {{-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> --}}
 
-    @include('header.header')
+
 
     <!-- Hero Section Begin -->
     <section class="hero-section">
@@ -509,17 +514,19 @@
     </section>
     <!-- Latest Blog Section End -->
 
-   
+
 
     <!-- Footer Section Begin -->
-    
+
     <!-- Footer Section End -->
 
-    
+
     </section>
 @endsection
+@push('manual_script')
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript">
- 
+
 
 </script>
+@endpush

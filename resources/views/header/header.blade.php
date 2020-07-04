@@ -1,5 +1,7 @@
 <?php
+if (Auth::user()){
      $cartitems = \Cart::session(auth()->id())->getContent();
+    }
     //  dd($cartitems);
  ?>
  <!DOCTYPE html>

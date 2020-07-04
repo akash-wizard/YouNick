@@ -74,6 +74,20 @@ h1 {
     </div>
     <!-- Breadcrumb Section Begin -->
 
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <img src="img/products/product-1.jpg" class="imagepreview" style="width: 100%;" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
     <!-- Product Shop Section Begin -->
     <section class="product-shop spad">
         <div class="container">
@@ -229,7 +243,7 @@ h1 {
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <img src="img/products/product-1.jpg" alt="">
+                                        <a class="pop" href="#"><img  src="img/products/product-1.jpg" alt=""></a>
                                         <div class="sale pp-sale">Sale</div>
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
@@ -243,7 +257,7 @@ h1 {
                                                 @endguest
 
 
-                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                            <li class="quick-view"><a class="pop" href="#">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -633,5 +647,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 }
             })
     });
+    </script>
+    <script>
+        $(function() {
+		$('.pop').on('click', function() {
+			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+			$('#imagemodal').modal('show');
+		});
+});
     </script>
  @endpush

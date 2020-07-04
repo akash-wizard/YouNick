@@ -28,7 +28,7 @@ class HomeController extends Controller
         $allProducts = Product::take(20)->get();
 
         // dd($allProducts);
-        return view('shop',compact('allProducts','cartitems'));
+        return view('shop',compact('allProducts'));
         // $login_type = \Auth::user()->user_type;
         // // dd($login_type);
         // if ($login_type=="vendor") {
