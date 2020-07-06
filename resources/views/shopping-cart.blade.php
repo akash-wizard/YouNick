@@ -53,7 +53,7 @@
                                         <h5>{{$item->name}}</h5>
                                     </td>
                                     <td class="p-price first-row">
-                                            {{$item->price}}
+                                        ₹{{$item->price}}
 
 
                                     </td>
@@ -70,7 +70,7 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class="total-price first-row">{{Cart::session(auth()->id())->get($item->id)->getPriceSum()}}</td>
+                                    <td class="total-price first-row">₹{{Cart::session(auth()->id())->get($item->id)->getPriceSum()}}</td>
                                 <td class="close-td first-row"><a href="{{ route('cart.destroy',$item->id)}}"><i class="ti-close"></i></a></td>
                                 </tr>
 
@@ -95,8 +95,8 @@
                         <div class="col-lg-4 offset-lg-4">
                             <div class="proceed-checkout">
                                 <ul>
-                                    <li class="subtotal">Subtotal <span>{{Cart::session(auth()->id())->getSubTotal()}}</span></li>
-                                    <li class="cart-total">Total <span>{{Cart::session(auth()->id())->getTotal()}}</span></li>
+                                    <li class="subtotal">Subtotal <span>₹{{Cart::session(auth()->id())->getSubTotal()}}</span></li>
+                                    <li class="cart-total">Total <span>₹{{Cart::session(auth()->id())->getTotal()}}</span></li>
                                 </ul>
                                 <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
                                 <a href="{{ route('cart.clearAll')}}" class="proceed-btn">CLEAR ALL</a>
@@ -230,6 +230,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
