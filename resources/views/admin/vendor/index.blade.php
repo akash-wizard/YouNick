@@ -1,6 +1,6 @@
 
 
-@extends('layouts.master')
+@extends('layouts.vendor')
 @push('header')
 <section class="content-header">
   <h1>
@@ -27,13 +27,11 @@
 @endif
 
 
-    <div class="box-header">
-        <div class="row pull-right" style="margin-bottom: 20px;">
-            <div class="col-md-3">
+    <div class="box-header ">
+            <div class="float-right">
                 <div class="btn-group">
-                    <a href="{{ url('/Products/create') }}"  class="btn btn-primary"> Add Product </a>
+                    <a href="{{ url('/Products/create') }}"  class="btn btn-primary">Add Product</a>
                 </div>
-            </div>
         </div>
     </div>
     <div class="card-body">
