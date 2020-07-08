@@ -74,7 +74,7 @@ h1 {
     </div>
     <!-- Breadcrumb Section Begin -->
 
-
+    {{-- img modal --}}
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -243,7 +243,7 @@ h1 {
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a class="pop" href="#"><img  src="img/products/product-1.jpg" alt=""></a>
+                                        <a  href="#"><img  src="img/products/product-1.jpg" alt=""></a>
                                         <div class="sale pp-sale">Sale</div>
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
@@ -621,33 +621,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
  <script src="js/main.js"></script>
 
 
- <!-- SweetAlert2 -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
- <script>// Alert Redirect to Another Link
-    $(document).on('click', '#link', function(e) {
-        // alert(1);
-        swal({
-            title: "Please Login?",
-            text: "Click Following Button For Login",
-            type: "warning",
-            confirmButtonText: "Login!",
-            showCancelButton: true
-        })
-            .then((result) => {
-                if (result.value) {
-                    window.location = '/login';
-                } else if (result.dismiss === 'cancel') {
-                    swal(
-                      'Cancelled',
-                      'Your stay here :)',
-                      'error'
-                    )
-                }
-            })
-    });
-    </script>
     <script>
         $(function() {
 		$('.pop').on('click', function() {

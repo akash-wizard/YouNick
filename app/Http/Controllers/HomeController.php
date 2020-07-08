@@ -28,18 +28,18 @@ class HomeController extends Controller
         $allProducts = Product::take(20)->get();
 
         // dd($allProducts);
-        return view('shop',compact('allProducts'));
-        // $login_type = \Auth::user()->user_type;
-        // // dd($login_type);
-        // if ($login_type=="vendor") {
-        // return view('dashboard.vendorDashboard');
-        // }
-        // else if($login_type=="admin"){
-        //     return view('dashboard.adminDashboard');
-        // }
-        // else{
-        //     return view("index",['allProducts' => $products]);
 
-        // }
+        $login_type = \Auth::user()->user_type;
+        // dd($login_type);
+        if ($login_type=="vendor") {
+        return view('dashboard.vendorDashboard');
+        }
+        else if($login_type=="admin"){
+            return view('dashboard.adminDashboard');
+        }
+        else{
+            return view('shop',compact('allProducts'));
+
+        }
     }
 }

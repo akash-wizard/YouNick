@@ -128,4 +128,33 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+{{-- this aleret for user not login show --}}
+     <!-- SweetAlert2 -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+ <script>// Alert Redirect to Another Link
+    $(document).on('click', '#link', function(e) {
+        // alert(1);
+        swal({
+            title: "Please Login?",
+            text: "Click Following Button For Login",
+            type: "warning",
+            confirmButtonText: "Login!",
+            showCancelButton: true
+        })
+            .then((result) => {
+                if (result.value) {
+                    window.location = '/login';
+                } else if (result.dismiss === 'cancel') {
+                    swal(
+                      'Cancelled',
+                      'Your stay here :)',
+                      'error'
+                    )
+                }
+            })
+    });
+    </script>
 </html>

@@ -154,16 +154,16 @@ if (Auth::user()){
                                 <li><a href="#">Kid's</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{url('blog')}}">Blog</a></li>
+                        {{-- <li><a href="{{url('blog')}}">Blog</a></li> --}}
                         <li><a href="{{url('contact')}}">Contact</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Admin panel</a>
                             <ul class="dropdown">
-                                <li><a href="{{url('blog-details')}}">Blog Details</a></li>
-                                <li><a href="{{url('shopping-cart')}}">Shopping Cart</a></li>
+                                <li><a href="{{url('home')}}">Dashboard</a></li>
+                                {{-- <li><a href="{{url('shopping-cart')}}">Shopping Cart</a></li>
                                 <li><a href="{{url('check-out')}}">Checkout</a></li>
                                 <li><a href="{{url('faq')}}">Faq</a></li>
                                 <li><a href="{{url('register')}}">Register</a></li>
-                                <li><a href="{{url('login')}}">Login</a></li>
+                                <li><a href="{{url('login')}}">Login</a></li> --}}
                             </ul>
                         </li>
                     </ul>

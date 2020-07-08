@@ -50,4 +50,9 @@ Route::get('/card','CardController@index')->name('cart.index')->middleware('auth
 Route::get('/card.destroy/{id}','CardController@destroy')->name('cart.destroy')->middleware('auth');
 Route::get('/card.update/{id}','CardController@update')->name('cart.update')->middleware('auth');
 Route::get('/card.clearAll','CardController@clearAll')->name('cart.clearAll')->middleware('auth');
+Route::get('/card.clearAll','CardController@clearAll');
 
+
+
+//add product
+Route::resource('Products','ProductController');
