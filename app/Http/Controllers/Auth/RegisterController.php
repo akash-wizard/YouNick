@@ -75,7 +75,7 @@ class RegisterController extends Controller
         if($file = $request->hasfile('avatar'))
         {
             $file = array();
-            dd(1);
+            // dd(1);
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'email' => $email,
             'user_type' => $usersType,
             'password' => Hash::make($password),
-            'avatar' => $filename,
+            // 'avatar' => $filename,
         ]);
         $userArray = ['name'=>$name,'email'=>$email,'password'=>$password,'blade'=>$blade];
          $this->SendAllEmail($userArray);
