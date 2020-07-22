@@ -94,6 +94,10 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div> -->
+                @foreach($data as $key=>$value)
+                {{$value->name}}
+                @endforeach
+                {{$data->links()}}
             </div>
         </div>
     </body>

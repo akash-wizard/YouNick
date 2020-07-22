@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home1', 'HomeController@index')->name('home');
 Route::get('/affiliates', 'AffiliatesController@index');
 Route::get('/shop', 'CardController@shop');
 Route::view('/blog', 'blog');
@@ -51,8 +51,14 @@ Route::get('/card.destroy/{id}','CardController@destroy')->name('cart.destroy')-
 Route::get('/card.update/{id}','CardController@update')->name('cart.update')->middleware('auth');
 Route::get('/card.clearAll','CardController@clearAll')->name('cart.clearAll')->middleware('auth');
 
-
+//product master
+Route::get('/AddProductType','ProductMasterController@AddProductType');
+Route::get('/addNewProductType','ProductMasterController@addNewProductType');
+Route::post('/saveProductType','ProductMasterController@saveProductType');
+Route::get('/showProductType','ProductMasterController@showProductType');
 
 
 //add product
 Route::resource('Products','ProductController');
+Route::post('storeProducts','ProductController@store');
+Route::get('demo','DemoController@index');

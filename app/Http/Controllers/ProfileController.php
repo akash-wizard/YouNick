@@ -11,21 +11,22 @@ class ProfileController extends Controller
    public function profile()
    {
    	return view('profile.index');
-   	
+
    }
    public function changePassword(Request $request)
    {
    	 $request->validate([
       'password' => 'required|min:8',
       'confirm_password' => 'required|same:password',
-      
+
       ]);
 
    	$id = \Auth::user()->id;
    	$password = $request->password;
    	$userData = User::find($id);
    	$userData->password = bcrypt($password);
-   	$userData->save();
+       $userData->save();
+       return redirect()->back()->with('success','pasword change successfully');
 
 
    }
@@ -44,8 +45,8 @@ class ProfileController extends Controller
         $request->validate([
           'name' => 'required',
           'email' => 'required',
-          // 'user_logo' => 'required',
-          
+          'user_logo' => 'required|mimes:jpeg,png|max:500|dimensions:min_width=3000,min_height=3000',
+
           ]);
         $folder = 'profile-img';
         $data = user::where('id',auth()->user()->id)->first();
@@ -54,7 +55,7 @@ class ProfileController extends Controller
         $data->email = $request->email;
         // $data->role_id = $request->role_id;
         // $data->user_logo = $request->user_logo;
-        
+
         // if ($data->user_logo) {
         //       File::delete(public_path('/'.$folder . '/' . $data->user_logo));
         //       $data->user_logo = null;

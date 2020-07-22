@@ -30,25 +30,121 @@
         </div>
     </div> -->
     <div class="card-body">
-        <form action="" enctype="multipart/form-data" class="form" method="post">
+    <form action="{{ url('/storeProducts')}}" enctype="multipart/form-data" class="form" method="post">
         {{ csrf_field() }}
+    <div class="col-md-12 row">
+        <div class="col-md-6">
+            <label>Product Type:</label>
+            <select class="form-control" name="product_type" id="product_type">
+            <option value="">--Select--</option>
+            @foreach ($productList as $item)
+            <option value="{{$item->product_type}}">{{$item->product_type}}</option>
+            @endforeach
+            {{-- <option value="electronic" {{ old('product_type') == 'electronic' ? "selected" :""}}>electronic</option>
+            <option value="cloths" {{ old('product_type') == 'cloths' ? "selected" :""}}>cloths</option>
+            <option value="grocery" {{ old('product_type') == 'grocery' ? "selected" :""}}>grocery</option>
+            <option value="beauty" {{ old('product_type') == 'beauty' ? "selected" :""}}>beauty</option>
+            <option value="health" {{ old('product_type') == 'health' ? "selected" :""}}>health</option>
+            <option value="sport" {{ old('product_type') == 'sport' ? "selected" :""}}>sport</option> --}}
+            </select>
+            <span class="has-error">{{ $errors->first('product_type') }}</span>
+        </div>
+        <div class="col-md-6 electronicDiv hidden" >
+            <label>Electronic Item's Type:</label>
+            <select class="form-control" name="electronic_type" id="electronic_type">
+            <option value="">--Select--</option>
+            <option value="mobiles" {{ old('electronic_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+            <option value="computers" {{ old('electronic_type') == 'computers' ? "selected" :""}}>Computers</option>
+            <option value="tablets" {{ old('electronic_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+            <option value="power_banks" {{ old('electronic_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+            <option value="cases_and_covers" {{ old('electronic_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+            <option value="screen_protectors" {{ old('electronic_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+            </select>
+            <span class="has-error">{{ $errors->first('electronic_type') }}</span>
+        </div>
+        <div class="col-md-6 clothsDiv hidden" >
+                <label>Cloths Item's Type:</label>
+                <select class="form-control" name="cloths_type" id="cloths_type">
+                <option value="">--Select--</option>
+                <option value="mobiles" {{ old('cloths_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+                <option value="computers" {{ old('cloths_type') == 'computers' ? "selected" :""}}>Computers</option>
+                <option value="tablets" {{ old('cloths_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+                <option value="power_banks" {{ old('cloths_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+                <option value="cases_and_covers" {{ old('cloths_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+                <option value="screen_protectors" {{ old('cloths_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+                </select>
+                <span class="has-error">{{ $errors->first('cloths_type') }}</span>
+            </div>
+            <div class="col-md-6 groceryDiv hidden" >
+                    <label>Grocery Item's Type:</label>
+                    <select class="form-control" name="grocery_type" id="grocery_type">
+                    <option value="">--Select--</option>
+                    <option value="mobiles" {{ old('grocery_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+                    <option value="computers" {{ old('grocery_type') == 'computers' ? "selected" :""}}>Computers</option>
+                    <option value="tablets" {{ old('grocery_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+                    <option value="power_banks" {{ old('grocery_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+                    <option value="cases_and_covers" {{ old('grocery_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+                    <option value="screen_protectors" {{ old('grocery_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+                    </select>
+                    <span class="has-error">{{ $errors->first('grocery_type') }}</span>
+                </div>
 
+                <div class="col-md-6 beautyDiv hidden" >
+                        <label>Beauty Item's Type:</label>
+                        <select class="form-control" name="beauty_type" id="beauty_type">
+                        <option value="">--Select--</option>
+                        <option value="mobiles" {{ old('beauty_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+                        <option value="computers" {{ old('beauty_type') == 'computers' ? "selected" :""}}>Computers</option>
+                        <option value="tablets" {{ old('beauty_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+                        <option value="power_banks" {{ old('beauty_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+                        <option value="cases_and_covers" {{ old('beauty_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+                        <option value="screen_protectors" {{ old('beauty_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+                        </select>
+                        <span class="has-error">{{ $errors->first('beauty_type') }}</span>
+                    </div>
+                <div class="col-md-6 healthDiv hidden" >
+                        <label>Health Item's Type:</label>
+                        <select class="form-control" name="health_type" id="health_type">
+                        <option value="">--Select--</option>
+                        <option value="mobiles" {{ old('health_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+                        <option value="computers" {{ old('health_type') == 'computers' ? "selected" :""}}>Computers</option>
+                        <option value="tablets" {{ old('health_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+                        <option value="power_banks" {{ old('health_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+                        <option value="cases_and_covers" {{ old('health_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+                        <option value="screen_protectors" {{ old('health_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+                        </select>
+                        <span class="has-error">{{ $errors->first('health_type') }}</span>
+                    </div>
+                    <div class="col-md-6 sportDiv hidden" >
+                            <label>Sport Item's Type:</label>
+                            <select class="form-control" name="sport_type" id="sport_type">
+                            <option value="">--Select--</option>
+                            <option value="mobiles" {{ old('sport_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
+                            <option value="computers" {{ old('sport_type') == 'computers' ? "selected" :""}}>Computers</option>
+                            <option value="tablets" {{ old('sport_type') == 'tablets' ? "selected" :""}}>Tablets</option>
+                            <option value="power_banks" {{ old('sport_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
+                            <option value="cases_and_covers" {{ old('sport_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
+                            <option value="screen_protectors" {{ old('sport_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
+                            </select>
+                            <span class="has-error">{{ $errors->first('sport_type') }}</span>
+                        </div>
+        </div>
         <div class="col-md-12 row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label>Product Name:</label>
                 <input type="text" class="form-control" name="product_name" id="product_name" value="{{ old('product_name')}}"> <span class="has-error">{{ $errors->first('name') }}</span>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-4">
                 <label>Product Price:</label>
                 <input type="product_price" class="form-control" name="product_price" id="product_price" value="{{ old('product_price')}}" >
                 <span class="has-error">{{ $errors->first('product_price') }}</span>
-            </div>
-            <div class="col-md-3">
+            </div> --}}
+            {{-- <div class="col-md-4">
                 <label>Product Description:</label>
                 <input type="product_description" class="form-control" name="product_description" id="product_description" value="{{ old('product_description')}}" >
                 <span class="has-error">{{ $errors->first('product_description') }}</span>
-            </div>
-            <div class="col-md-3">
+            </div> --}}
+            <div class="col-md-4">
                 <label>Product Quantity:</label>
                 <input type="number" class="form-control" name="product_quantity" id="product_quantity" value="{{ old('product_quantity')}}" >
                 <span class="has-error">{{ $errors->first('product_quantity') }}</span>
@@ -65,98 +161,7 @@
                 <input type="number" class="form-control" name="discount_price" id="discount_price" value="{{ old('discount_price')}}" >
                 <span class="has-error">{{ $errors->first('discount_price') }}</span>
             </div>
-            <div class="col-md-6">
-                <label>Product Type:</label>
-                <select class="form-control" name="product_type" id="product_type">
-                <option value="">--Select--</option>
-                <option value="electronic" {{ old('product_type') == 'electronic' ? "selected" :""}}>electronic</option>
-                <option value="cloths" {{ old('product_type') == 'cloths' ? "selected" :""}}>cloths</option>
-                <option value="grocery" {{ old('product_type') == 'grocery' ? "selected" :""}}>grocery</option>
-                <option value="beauty" {{ old('product_type') == 'beauty' ? "selected" :""}}>beauty</option>
-                <option value="health" {{ old('product_type') == 'health' ? "selected" :""}}>health</option>
-                <option value="sport" {{ old('product_type') == 'sport' ? "selected" :""}}>sport</option>
-                </select>
-                <span class="has-error">{{ $errors->first('product_type') }}</span>
-            </div>
-            <div class="col-md-6 electronicDiv hidden" >
-                <label>Electronic Item's Type:</label>
-                <select class="form-control" name="product_type" id="product_type">
-                <option value="">--Select--</option>
-                <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                </select>
-                <span class="has-error">{{ $errors->first('product_type') }}</span>
-            </div>
-            <div class="col-md-6 clothsDiv hidden" >
-                    <label>Cloths Item's Type:</label>
-                    <select class="form-control" name="product_type" id="product_type">
-                    <option value="">--Select--</option>
-                    <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                    <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                    <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                    <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                    <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                    <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                    </select>
-                    <span class="has-error">{{ $errors->first('product_type') }}</span>
-                </div>
-                <div class="col-md-6 groceryDiv hidden" >
-                        <label>Grocery Item's Type:</label>
-                        <select class="form-control" name="product_type" id="product_type">
-                        <option value="">--Select--</option>
-                        <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                        <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                        <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                        <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                        <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                        <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                        </select>
-                        <span class="has-error">{{ $errors->first('product_type') }}</span>
-                    </div>
 
-                        <div class="col-md-6 beautyDiv hidden" >
-                                <label>Beauty Item's Type:</label>
-                                <select class="form-control" name="product_type" id="product_type">
-                                <option value="">--Select--</option>
-                                <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                                <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                                <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                                <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                                <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                                <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                                </select>
-                                <span class="has-error">{{ $errors->first('product_type') }}</span>
-                            </div>
-                            <div class="col-md-6 healthDiv hidden" >
-                                    <label>Health Item's Type:</label>
-                                    <select class="form-control" name="product_type" id="product_type">
-                                    <option value="">--Select--</option>
-                                    <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                                    <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                                    <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                                    <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                                    <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                                    <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                                    </select>
-                                    <span class="has-error">{{ $errors->first('product_type') }}</span>
-                                </div>
-                                <div class="col-md-6 sportDiv hidden" >
-                                        <label>Sport Item's Type:</label>
-                                        <select class="form-control" name="product_type" id="product_type">
-                                        <option value="">--Select--</option>
-                                        <option value="mobiles" {{ old('product_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                                        <option value="computers" {{ old('product_type') == 'computers' ? "selected" :""}}>Computers</option>
-                                        <option value="tablets" {{ old('product_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                                        <option value="power_banks" {{ old('product_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                                        <option value="cases_and_covers" {{ old('product_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                                        <option value="screen_protectors" {{ old('product_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                                        </select>
-                                        <span class="has-error">{{ $errors->first('product_type') }}</span>
-                                    </div>
         </div>
         <div class="col-md-12 row">
             <div class="col-md-3">
@@ -182,6 +187,12 @@
                 <span></span>
                 <input type="file" class="form-control" id="product_right_img" placeholder="Product right Img" value="" name="product_right_img">
                 <span class="has-error">{{ $errors->first('product_right_img') }}</span>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <label for="description">Product Description:</label>
+                <textarea name="product_description" class="form-control" rows="5" id="description"></textarea>
             </div>
         </div>
         <!-- <div class="col-md-6">

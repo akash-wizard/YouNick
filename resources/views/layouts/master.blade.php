@@ -251,6 +251,8 @@
           <li class="nav-item"><a href="{{ url('/home')}}" class="nav-link"><i class="fa fa-tachometer-alt"></i> <span>Dashboard</span></a>
           <li class="nav-item"><a href="{{ url('affiliates')}}" class="nav-link"><i class="fa fa-users"></i> <span>Affiliates</span></a>
           </li>
+          <li class="nav-item"><a href="{{ url('AddProductType')}}" class="nav-link"><i class="fa fa-users"></i> <span>Add Product Type</span></a>
+          </li>
           <li class="nav-item"><a href="{{ url('/')}}" class="nav-link"><i class="fa fa-users"></i> <span>Client Panel</span></a>
           </li>
           <!-- <li class="nav-item">
