@@ -45,7 +45,7 @@ class ProfileController extends Controller
         $request->validate([
           'name' => 'required',
           'email' => 'required',
-          'user_logo' => 'required|mimes:jpeg,png|max:500|dimensions:min_width=3000,min_height=3000',
+        //   'user_logo' => 'required|mimes:jpeg,png|max:500|dimensions:min_width=3000,min_height=3000',
 
           ]);
         $folder = 'profile-img';

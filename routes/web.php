@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/home1', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/affiliates', 'AffiliatesController@index');
 Route::get('/shop', 'CardController@shop');
 Route::view('/blog', 'blog');
