@@ -18,7 +18,7 @@ class CardController extends Controller
     'name' => $product->name,
     'price' => $product->price,
     'img' => $product->product_front_img,
-    'quantity' =>  $product->product_quantity,
+    'quantity' =>  1,
     'attributes' => array(),
     'associatedModel' => $product
     ));

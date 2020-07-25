@@ -140,7 +140,8 @@
 @push('manual_script')
 
 <script type="text/javascript">
-    $(document).change(function(){
+    // $(document).ready(function(){
+        $('#product_type').change(function(){
         var product_typeId = $('#product_type').val();
             // alert(product_typeId);
             jQuery.ajax({
@@ -155,9 +156,9 @@
                         console.log(data);
                         $('.subType').show();
                         $('#sub_type').html('');
-                        $.each(data,function(intIndex,objValue)
+                        $.each(data,function(key,val)
                         {
-                            var newOption = $('<option value="'+objValue.id+'">'+objValue.product_sub_type+'</option>');
+                            var newOption = $('<option value='+val.id+'>'+val.product_sub_type+'</option>');
                             $('#sub_type').append(newOption);
                         }
                         );

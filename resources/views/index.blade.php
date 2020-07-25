@@ -106,31 +106,41 @@
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel">
+                            @foreach($allProducts as $product)
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="img/products/women-1.jpg" alt="">
+                                {{-- <img src="img/products/women-1.jpg" alt=""> --}}
+                                <a href="#"><img style=" width: 120px;height: 215px;border-radius:10%;" src="/product_front_img/{{ $product->product_front_img}}"></a>
                                 <div class="sale">Sale</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
                                 </div>
                                 <ul>
-                                    <li class="w-icon active"><a id="link" href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                        @auth
+                                        <li class="w-icon active"><a href="{{ route("cart.add", $product->id)}}"><i class="icon_bag_alt"></i></a></li>
+                                        @endauth
+                                        @guest
+                                        <li class="w-icon active"><a id="link" href="#"><i class="icon_bag_alt"></i></a></li>
+                                        @endguest
+
+
+                                    <li class="quick-view"><a class="pop" href="#">+ Quick View</a></li>
                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
+                                    <div class="catagory-name">{{$product->description}}</div>
+                                    <a href="#">
+                                        <h5>{{$product->name}}</h5>
+                                    </a>
+                                    <div class="product-price">
+                                        ${{$product->price}}
+                                        <span>{{$product->discount_price}}</span>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                        <div class="product-item">
+                        @endforeach
+                        {{-- <div class="product-item">
                             <div class="pi-pic">
                                 <img src="img/products/women-2.jpg" alt="">
                                 <div class="icon">
@@ -173,8 +183,8 @@
                                     $34.00
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-item">
+                        </div> --}}
+                        {{-- <div class="product-item">
                             <div class="pi-pic">
                                 <img src="img/products/women-4.jpg" alt="">
                                 <div class="icon">
@@ -195,7 +205,7 @@
                                     $34.00
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -218,19 +228,19 @@
                 </div>
                 <div class="countdown-timer" id="countdown">
                     <div class="cd-item">
-                        <span>56</span>
+                        <span id="days"></span>
                         <p>Days</p>
                     </div>
                     <div class="cd-item">
-                        <span>12</span>
+                        <span id="hours"></span>
                         <p>Hrs</p>
                     </div>
                     <div class="cd-item">
-                        <span>40</span>
+                        <span id="minutes"></span>
                         <p>Mins</p>
                     </div>
                     <div class="cd-item">
-                        <span>52</span>
+                        <span id="seconds"></span>
                         <p>Secs</p>
                     </div>
                 </div>
@@ -254,31 +264,41 @@
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/man-1.jpg" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
+                            @foreach($allProducts as $product)
+                            <div class="product-item">
+                                <div class="pi-pic">
+                                    {{-- <img src="img/products/women-1.jpg" alt=""> --}}
+                                    <a href="#"><img style=" width: 120px;height: 215px;border-radius:10%;" src="/product_front_img/{{ $product->product_front_img}}"></a>
+                                    <div class="sale">Sale</div>
+                                    <div class="icon">
+                                        <i class="icon_heart_alt"></i>
+                                    </div>
+                                    <ul>
+                                            @auth
+                                            <li class="w-icon active"><a href="{{ route("cart.add", $product->id)}}"><i class="icon_bag_alt"></i></a></li>
+                                            @endauth
+                                            @guest
+                                            <li class="w-icon active"><a id="link" href="#"><i class="icon_bag_alt"></i></a></li>
+                                            @endguest
+
+
+                                        <li class="quick-view"><a class="pop" href="#">+ Quick View</a></li>
+                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                    </ul>
                                 </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
+                                <div class="pi-text">
+                                        <div class="catagory-name">{{$product->description}}</div>
+                                        <a href="#">
+                                            <h5>{{$product->name}}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            ${{$product->price}}
+                                            <span>{{$product->discount_price}}</span>
+                                        </div>
+                                    </div>
                             </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
+                            @endforeach
+                        {{-- <div class="product-item">
                             <div class="pi-pic">
                                 <img src="img/products/man-2.jpg" alt="">
                                 <div class="icon">
@@ -343,7 +363,7 @@
                                     $34.00
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
@@ -526,7 +546,30 @@
 @push('manual_script')
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript">
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
 
+let countDown = new Date('Jul 26, 2020 00:00:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+      //do something later when date is reached
+      //if (distance < 0) {
+      //  clearInterval(x);
+      //  'IT'S MY BIRTHDAY!;
+      //}
+
+    }, second)
 
 </script>
+
 @endpush

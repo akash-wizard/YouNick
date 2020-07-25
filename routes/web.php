@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('index');
+    $allProducts = Product::take(20)->get();
+    // dd($allProducts);
+    return view('index',compact('allProducts'));
 });
 Auth::routes();
 
