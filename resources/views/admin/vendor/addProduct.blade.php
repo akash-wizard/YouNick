@@ -35,99 +35,21 @@
     <div class="col-md-12 row">
         <div class="col-md-6">
             <label>Product Type:</label>
-            <select class="form-control" name="product_type" id="product_type">
+            <select class="form-control" name="product_type_id" id="product_type">
             <option value="">--Select--</option>
             @foreach ($productList as $item)
-            <option value="{{$item->product_type}}">{{$item->product_type}}</option>
+            <option value="{{$item->id}}">{{$item->product_type}}</option>
             @endforeach
-            {{-- <option value="electronic" {{ old('product_type') == 'electronic' ? "selected" :""}}>electronic</option>
-            <option value="cloths" {{ old('product_type') == 'cloths' ? "selected" :""}}>cloths</option>
-            <option value="grocery" {{ old('product_type') == 'grocery' ? "selected" :""}}>grocery</option>
-            <option value="beauty" {{ old('product_type') == 'beauty' ? "selected" :""}}>beauty</option>
-            <option value="health" {{ old('product_type') == 'health' ? "selected" :""}}>health</option>
-            <option value="sport" {{ old('product_type') == 'sport' ? "selected" :""}}>sport</option> --}}
             </select>
-            <span class="has-error">{{ $errors->first('product_type') }}</span>
+            <span class="has-error">{{ $errors->first('product_type_id') }}</span>
         </div>
-        <div class="col-md-6 electronicDiv hidden" >
-            <label>Electronic Item's Type:</label>
-            <select class="form-control" name="electronic_type" id="electronic_type">
-            <option value="">--Select--</option>
-            <option value="mobiles" {{ old('electronic_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-            <option value="computers" {{ old('electronic_type') == 'computers' ? "selected" :""}}>Computers</option>
-            <option value="tablets" {{ old('electronic_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-            <option value="power_banks" {{ old('electronic_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-            <option value="cases_and_covers" {{ old('electronic_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-            <option value="screen_protectors" {{ old('electronic_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-            </select>
-            <span class="has-error">{{ $errors->first('electronic_type') }}</span>
-        </div>
-        <div class="col-md-6 clothsDiv hidden" >
-                <label>Cloths Item's Type:</label>
-                <select class="form-control" name="cloths_type" id="cloths_type">
-                <option value="">--Select--</option>
-                <option value="mobiles" {{ old('cloths_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                <option value="computers" {{ old('cloths_type') == 'computers' ? "selected" :""}}>Computers</option>
-                <option value="tablets" {{ old('cloths_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                <option value="power_banks" {{ old('cloths_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                <option value="cases_and_covers" {{ old('cloths_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                <option value="screen_protectors" {{ old('cloths_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                </select>
-                <span class="has-error">{{ $errors->first('cloths_type') }}</span>
-            </div>
-            <div class="col-md-6 groceryDiv hidden" >
-                    <label>Grocery Item's Type:</label>
-                    <select class="form-control" name="grocery_type" id="grocery_type">
-                    <option value="">--Select--</option>
-                    <option value="mobiles" {{ old('grocery_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                    <option value="computers" {{ old('grocery_type') == 'computers' ? "selected" :""}}>Computers</option>
-                    <option value="tablets" {{ old('grocery_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                    <option value="power_banks" {{ old('grocery_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                    <option value="cases_and_covers" {{ old('grocery_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                    <option value="screen_protectors" {{ old('grocery_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                    </select>
-                    <span class="has-error">{{ $errors->first('grocery_type') }}</span>
-                </div>
+        <div class="col-md-6 subType hidden" >
+            <label> Item's Type:</label>
+            <select class="form-control" name="product_subType_id" id="sub_type">
 
-                <div class="col-md-6 beautyDiv hidden" >
-                        <label>Beauty Item's Type:</label>
-                        <select class="form-control" name="beauty_type" id="beauty_type">
-                        <option value="">--Select--</option>
-                        <option value="mobiles" {{ old('beauty_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                        <option value="computers" {{ old('beauty_type') == 'computers' ? "selected" :""}}>Computers</option>
-                        <option value="tablets" {{ old('beauty_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                        <option value="power_banks" {{ old('beauty_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                        <option value="cases_and_covers" {{ old('beauty_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                        <option value="screen_protectors" {{ old('beauty_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                        </select>
-                        <span class="has-error">{{ $errors->first('beauty_type') }}</span>
-                    </div>
-                <div class="col-md-6 healthDiv hidden" >
-                        <label>Health Item's Type:</label>
-                        <select class="form-control" name="health_type" id="health_type">
-                        <option value="">--Select--</option>
-                        <option value="mobiles" {{ old('health_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                        <option value="computers" {{ old('health_type') == 'computers' ? "selected" :""}}>Computers</option>
-                        <option value="tablets" {{ old('health_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                        <option value="power_banks" {{ old('health_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                        <option value="cases_and_covers" {{ old('health_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                        <option value="screen_protectors" {{ old('health_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                        </select>
-                        <span class="has-error">{{ $errors->first('health_type') }}</span>
-                    </div>
-                    <div class="col-md-6 sportDiv hidden" >
-                            <label>Sport Item's Type:</label>
-                            <select class="form-control" name="sport_type" id="sport_type">
-                            <option value="">--Select--</option>
-                            <option value="mobiles" {{ old('sport_type') == 'mobiles' ? "selected" :""}}>Mobile Phones</option>
-                            <option value="computers" {{ old('sport_type') == 'computers' ? "selected" :""}}>Computers</option>
-                            <option value="tablets" {{ old('sport_type') == 'tablets' ? "selected" :""}}>Tablets</option>
-                            <option value="power_banks" {{ old('sport_type') == 'power_banks' ? "selected" :""}}>Power Banks</option>
-                            <option value="cases_and_covers" {{ old('sport_type') == 'cases_and_covers' ? "selected" :""}}>Cases $ Covers</option>
-                            <option value="screen_protectors" {{ old('sport_type') == 'screen_protectors' ? "selected" :""}}>Screen Protectors</option>
-                            </select>
-                            <span class="has-error">{{ $errors->first('sport_type') }}</span>
-                        </div>
+            </select>
+            <span class="has-error">{{ $errors->first('product_subType_id') }}</span>
+        </div>
         </div>
         <div class="col-md-12 row">
             <div class="col-md-4">
@@ -217,7 +139,43 @@
 @endsection
 @push('manual_script')
 
-<script>
+<script type="text/javascript">
+    $(document).change(function(){
+        var product_typeId = $('#product_type').val();
+            // alert(product_typeId);
+            jQuery.ajax({
+                    url: "{{url('getProductSubTypeDetails')}}",
+                    type: 'GET',
+                    data:{
+
+                        product_typeId:product_typeId
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                        $('.subType').show();
+                        $('#sub_type').html('');
+                        $.each(data,function(intIndex,objValue)
+                        {
+                            var newOption = $('<option value="'+objValue.id+'">'+objValue.product_sub_type+'</option>');
+                            $('#sub_type').append(newOption);
+                        }
+                        );
+
+                        // $.each(data.vehicle_data,function(intIndex,objValue)
+                        // {
+                        //     var newOption = $('<option value="'+objValue.id+'">'+objValue.vehicle_no+'</option>');
+                        //     $('#vehicle_no').append(newOption);
+                        // }
+                        // );
+                    },
+                    error: function(e) {
+                    alert('Something wrong');
+                    }
+                });
+    })
+</script>
+{{-- <script>
     $('#product_type').on('change',function(){
         if($(this).val() == 'electronic'){
             $('.electronicDiv').removeClass('hidden');
@@ -274,7 +232,7 @@
         }
 
     });
-</script>
+</script> --}}
 <!-- <script type="text/javascript">
       /*$(document).ready( function () {
     $('#myTable').DataTable({"scrollX": true});

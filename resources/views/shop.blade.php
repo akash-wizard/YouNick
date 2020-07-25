@@ -80,7 +80,7 @@ h1 {
               <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                  <img src="img/products/product-1.jpg" class="imagepreview" style="width: 100%;" >
+                  {{-- <img src="img/products/product-1.jpg" class="imagepreview" style="width: 100%;" > --}}
                 </div>
               </div>
             </div>
@@ -243,7 +243,8 @@ h1 {
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a  href="#"><img  src="img/products/product-1.jpg" alt=""></a>
+                                        {{-- <a  href="#"><img  src="img/products/product-1.jpg" alt=""></a> --}}
+                                        <a href="#"><img style=" width: 120px;height: 215px;border-radius:10%;" src="/product_front_img/{{ $product->product_front_img}}"></a>
                                         <div class="sale pp-sale">Sale</div>
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>

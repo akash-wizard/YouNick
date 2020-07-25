@@ -56,6 +56,7 @@ Route::get('/AddProductType','ProductMasterController@AddProductType');
 Route::get('/addNewProductType','ProductMasterController@addNewProductType');
 Route::post('/saveProductType','ProductMasterController@saveProductType');
 Route::get('/showProductType','ProductMasterController@showProductType');
+Route::get('/getProductSubTypeDetails','ProductMasterController@getProductSubTypeDetails');
 
 
 //add product

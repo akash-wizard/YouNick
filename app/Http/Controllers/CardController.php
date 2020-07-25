@@ -17,7 +17,8 @@ class CardController extends Controller
     'id' => $product->id,
     'name' => $product->name,
     'price' => $product->price,
-    'quantity' => 1,
+    'img' => $product->product_front_img,
+    'quantity' =>  $product->product_quantity,
     'attributes' => array(),
     'associatedModel' => $product
     ));
@@ -27,6 +28,7 @@ class CardController extends Controller
     public function index()
     {
         $cartitems = \Cart::session(auth()->id())->getContent();
+        // dd($cartitems);
         return view('shopping-cart',compact('cartitems'));
     }
     public function destroy($itemId)
@@ -56,7 +58,7 @@ class CardController extends Controller
     {
         $allProducts = Product::take(20)->get();
 
-        // dd(count($allProducts));
+        // dd(($allProducts));
         return view('shop',compact('allProducts'));
     }
 }

@@ -42,8 +42,11 @@ class ProductMasterController extends Controller
         }
         return redirect()->to(url('AddProductType'))->with('success','Product Type Add Successfully');
     }
-    public function showProductType()
+    public function getProductSubTypeDetails(Request $request)
     {
-
+        // dd(1);
+        $data = AllProductSubType::where('product_type_id',$request->product_typeId)
+        ->get();
+        return $data;
     }
 }

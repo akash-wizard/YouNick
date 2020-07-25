@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/shop')}}">Shop</a>
                         <span>Shopping Cart</span>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
 
 
                                 <tr>
-                                    <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
+                                    <td class="cart-pic first-row"><img style=" width: 121px;border-radius:10%;" src="/product_front_img/{{ $item['associatedModel']->product_front_img}}" alt=""></td>
                                     <td class="cart-title first-row">
-                                        <h5>{{$item->name}}</h5>
+                                        <h5>{{$item['associatedModel']->name}}</h5>
                                     </td>
                                     <td class="p-price first-row">
                                         ₹{{$item->price}}

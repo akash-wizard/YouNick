@@ -79,7 +79,7 @@ if (Auth::user()){
 
                                                         @foreach ($cartitems as $item)
                                                         <tr>
-                                                            <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                                            <td class="si-pic"><img style=" width: 121px;border-radius:10%;" src="/product_front_img/{{ $item['associatedModel']->product_front_img}}" alt=""></td>
                                                             <td class="si-text">
                                                                 <div class="product-selected">
                                                                     <p>{{$item->price}}</p>
