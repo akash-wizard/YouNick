@@ -1,5 +1,82 @@
 @extends('layouts.app')
 @push('css')
+<style>
+    #carousel .carousel-item.boat {
+  background-image: url("img/hero-1.jpg");
+}
+
+#carousel .carousel-item.sea {
+  background-image: url("img/hero-2.jpg");
+}
+
+#carousel .carousel-item.river {
+  background-image: url("img/hero-3.jpg");
+}
+
+#carousel .carousel-item {
+  height: 100vh;
+  width: 100%;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  background-size: cover;
+}
+
+#carousel .carousel-inner .carousel-item {
+  transition: -webkit-transform 2s ease;
+  transition: transform 2s ease;
+  transition: transform 2s ease, -webkit-transform 2s ease;
+}
+
+#carousel .carousel-item .caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  color: white;
+  animation-duration: 1s;
+  animation-delay: 2s;
+}
+
+#carousel .caption h2 {
+  animation-duration: 1s;
+  animation-delay: 2s;
+}
+
+#carousel .caption p {
+  animation-duration: 1s;
+  animation-delay: 2.2s;
+}
+
+#carousel .caption a {
+  animation-duration: 1s;
+  animation-delay: 2.4s;
+}
+
+/* Button */
+.delicious-btn {
+  display: inline-block;
+  min-width: 160px;
+  height: 60px;
+  color: #ffffff;
+  border: none;
+  border-left: 3px solid #1c8314;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 58px;
+  font-weight: 600;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  text-transform: capitalize;
+  background-color: #40ba37;
+}
+
+.delicious-btn.active, .delicious-btn:hover, .delicious-btn:focus {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1c8314;
+  border-color: #40ba37;
+}
+</style>
 @endpush
 @push('header')
 @include('header.header')
@@ -12,45 +89,63 @@
         <div class="loader"></div>
     </div> --}}
 
-
-
-    <!-- Hero Section Begin -->
-    <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
-                        </div>
+    <div id="carousel" class="carousel slide hero-slides" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li class="active" data-target="#carousel" data-slide-to="0"></li>
+              <li data-target="#carousel" data-slide-to="1"></li>
+              <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active boat">
+                <div class="container h-100 d-none d-md-block">
+                  <div class="row align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                      <div class="caption animated fadeIn">
+                        <h2 class="animated fadeInLeft">Boat Excursions</h2>
+                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
+                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
+                      </div>
                     </div>
-                    <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
-                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="single-hero-items set-bg" data-setbg="img/hero-2.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
-                        </div>
+              </div>
+              <div class="carousel-item sea">
+                <div class="container h-100 d-none d-md-block">
+                  <div class="row align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                      <div class="caption animated fadeIn">
+                        <h2 class="animated fadeInLeft">Discover the canyon by the sea</h2>
+                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
+                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
+                      </div>
                     </div>
-                    <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
-                    </div>
+                  </div>
                 </div>
+              </div>
+              <div class="carousel-item river">
+                <div class="container h-100 d-none d-md-block">
+                  <div class="row align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                      <div class="caption animated fadeIn">
+                        <h2 class="animated fadeInLeft">Explore the river valley</h2>
+                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
+                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
