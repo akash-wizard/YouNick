@@ -61,4 +61,10 @@ class CardController extends Controller
         // dd(($allProducts));
         return view('shop',compact('allProducts'));
     }
+    public function checkout()
+    {
+
+        // dd(($allProducts));
+        return view('admin.card.checkout');
+    }
 }

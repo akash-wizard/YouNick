@@ -171,7 +171,7 @@
                         // );
                     },
                     error: function(e) {
-                    alert('Something wrong');
+                    alert('Something wrong'.0);
                     }
                 });
     })

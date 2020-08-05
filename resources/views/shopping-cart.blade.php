@@ -98,7 +98,7 @@
                                     <li class="subtotal">Subtotal <span>₹{{Cart::session(auth()->id())->getSubTotal()}}</span></li>
                                     <li class="cart-total">Total <span>₹{{Cart::session(auth()->id())->getTotal()}}</span></li>
                                 </ul>
-                                <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                            <a href="{{ route('cart.checkout') }}" class="proceed-btn">PROCEED TO CHECK OUT</a>
                                 <a href="{{ route('cart.clearAll')}}" class="proceed-btn">CLEAR ALL</a>
 
                             </div>

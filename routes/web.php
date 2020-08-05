@@ -53,6 +53,8 @@ Route::get('/card','CardController@index')->name('cart.index')->middleware('auth
 Route::get('/card.destroy/{id}','CardController@destroy')->name('cart.destroy')->middleware('auth');
 Route::get('/card.update/{id}','CardController@update')->name('cart.update')->middleware('auth');
 Route::get('/card.clearAll','CardController@clearAll')->name('cart.clearAll')->middleware('auth');
+Route::get('/card.checkout','CardController@checkout')->name('cart.checkout')->middleware('auth');
+Route::resource('orders','OrderController')->middleware('auth');
 
 //product master
 Route::get('/AddProductType','ProductMasterController@AddProductType');
@@ -66,3 +68,16 @@ Route::get('/getProductSubTypeDetails','ProductMasterController@getProductSubTyp
 Route::resource('Products','ProductController');
 Route::post('storeProducts','ProductController@store');
 Route::get('demo','DemoController@index');
+
+
+//paypal
+Route::get('paypal/checkout/{order}', 'PayPalController@getExpressCheckout')->name('paypal.checkout');
+Route::get('razorpay/checkout/{order}', 'PayPalController@paypalCheckout')->name('razorpay.checkout');
+
+Route::get('paypal/checkout-success/{order}', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.success');
+// Route::get('paypal/checkout-cancel', 'PayPalController@cancelPage')->name('paypal.cancel');
+
+
+
+//razorpay
+Route::post("/paysuccess", "RazorpayController@store");

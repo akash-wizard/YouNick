@@ -60,6 +60,13 @@ h1 {
 @section('content')
 <section class="content">
     <!-- Breadcrumb Section Begin -->
+    @if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
