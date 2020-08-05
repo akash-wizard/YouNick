@@ -18,6 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style type="text/css">
+        marquee { background: #e7ab3c; }
+        .li {
+          height: 20px;
+          border-radius: 0.5em;
+          box-shadow: 0 0.1em 0.5em;
+        }
+    </style>
     @stack('css')
 </head>
 <body>
@@ -107,6 +115,7 @@
             <!-- Content Header (Page header) -->
 
             <!-- /.content-header -->
+            <marquee class="li" direction=”right” onmouseover="stop()" onmouseout="start()">★ Hello User YouNick Is Under Devlopment Thats Why Some Modal's And Tab's are Not Working Our Team Is Working To Fix & Stable Thank you For Visiting <span class="fa fa-smile-o"></span>★</marquee>
             @stack('header')
             <!-- Main content -->
             <section class="content">
