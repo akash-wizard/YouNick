@@ -119,7 +119,14 @@ if (Auth::user()){
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">$150.00</li>
+                            <li class="cart-price">
+                                @auth
+
+                                 ₹{{Cart::session(auth()->id())->getTotal()}}</h5>
+
+                                @endauth
+                            </li>
+                            <!-- <li class="cart-price">$150.00</li> -->
                         </ul>
                     </div>
                 </div>
