@@ -81,3 +81,10 @@ Route::get('paypal/checkout-success/{order}', 'PayPalController@getExpressChecko
 
 //razorpay
 Route::post("/paysuccess", "RazorpayController@store");
+
+//socilite
+Route::get('/sign-in/github', 'Auth\LoginController@github');
+Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
+
+Route::get('/sign-in/facebook', 'Auth\LoginController@facebook');
+Route::get('/sign-in/facebook/redirect', 'Auth\LoginController@facebookRedirect');

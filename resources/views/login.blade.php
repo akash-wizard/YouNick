@@ -48,6 +48,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="site-btn login-btn">Sign In</button>
+                            <a href="{{url('/sign-in/github')}}" type="submit" class="site-btn login-btn">Sign In With GitHub</a>
                         </form>
                         <div class="switch-login">
                             <a href="{{url('register')}}" class="or-login">Or Create An Account</a>
@@ -104,7 +105,7 @@
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
+                            <li>Phone: +8108596770</li>
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div class="footer-social">
