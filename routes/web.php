@@ -90,4 +90,4 @@ Route::get('/sign-in/facebook', 'Auth\LoginController@facebook');
 Route::get('/sign-in/facebook/redirect', 'Auth\LoginController@facebookRedirect');
 
 Route::get('/sign-in/gmail', 'Auth\LoginController@gmail');
-Route::get('/sign-in/gmail/redirect', 'Auth\LoginController@facebookRedirect');
+Route::get('/sign-in/gmail/redirect', 'Auth\LoginController@gmailRedirect');
