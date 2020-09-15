@@ -80,6 +80,7 @@
                             <button type="submit" class="site-btn login-btn">{{ __('Login') }}</button>
                             <a href="{{url('/sign-in/github')}}" type="submit" class="site-btn login-btn">Sign In With GitHub</a>
                             <a href="{{url('/sign-in/facebook')}}" type="submit" class="site-btn login-btn">Sign In With FaceBook</a>
+                            <a href="{{url('/sign-in/gmail')}}" type="submit" class="site-btn login-btn">Sign In With G-MAIL</a>
                         </form>
                         
                   
