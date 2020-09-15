@@ -45,5 +45,10 @@ return [
     'client_secret' => env('GMAIL_CLIENT_SECRET'),
     'redirect' => env('GMAIL_REDIRECT_URL'),
     ],
+    'linkedin' => [
+    'client_id' => env('LINKEDIN_CLIENT_ID'),
+    'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
+    'redirect' => env('LINKEDIN_REDIRECT_URL'),
+]
 
 ];

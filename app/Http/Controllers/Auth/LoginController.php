@@ -56,6 +56,11 @@ class LoginController extends Controller
         // dd(1);
         return Socialite::driver('google')->redirect();
     }
+    public function linkedin()
+    {
+        // dd(1);
+        return Socialite::driver('linkedin')->redirect();
+    }
 
     /**
      * Obtain the user information from GitHub.
@@ -92,7 +97,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-        dd($user->user);
+        // dd($user->user);
 
         $user = User::firstOrCreate([
             'email' => $user->email
@@ -120,6 +125,32 @@ class LoginController extends Controller
         $user = Socialite::driver('google')->user();
 
         // dd($user->user);
+
+        $user = User::firstOrCreate([
+            'email' => $user->email
+        ],[
+            'name' => $user->name,
+            'password' => Hash::make(Str::random(24)),
+            'user_type' =>  'user'
+        
+        ]);
+        // dd(1);
+        // $data = new User();
+        // $data->email = $user->user['email'];
+        // $data->name = $user->user['name'];
+        // $data->password = Hash::make(Str::random(24));
+        // $data->save();
+        // dd(1);
+
+        Auth::login($user, true);
+        return redirect()->to( url('/'));
+        // $user->token;
+    }
+    public function linkedinRedirect()
+    {
+        $user = Socialite::driver('linkedin')->user();
+
+        dd($user->user);
 
         $user = User::firstOrCreate([
             'email' => $user->email
